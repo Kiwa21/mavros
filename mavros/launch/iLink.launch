@@ -1,0 +1,18 @@
+<launch>
+	<!-- vim: set ft=xml noet : -->
+	<!-- base node launch file-->
+
+	<arg name="mavros_url" />
+	<arg name="master_url" />
+	<arg name="slave_url" />
+	<arg name="log_output" default="screen" />
+	<arg name="fcu_protocol" default="v2.0" />
+	<arg name="respawn_mavros" default="false" />
+
+	<node pkg="mavros" type="iLink" name="iLink" required="$(eval not respawn_mavros)" clear_params="true" output="$(arg log_output)" respawn="$(arg respawn_mavros)">
+		<param name="mavros_url" value="$(arg mavros_url)" />
+		<param name="master_url" value="$(arg master_url)" />
+		<param name="slave_url" value="$(arg slave_url)" />
+		<param name="fcu_protocol" value="$(arg fcu_protocol)" />
+	</node>
+</launch>

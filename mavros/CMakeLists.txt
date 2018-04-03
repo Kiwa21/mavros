@@ -163,6 +163,14 @@ target_link_libraries(gcs_bridge
   ${catkin_LIBRARIES}
 )
 
+add_executable(iLink
+  src/iLink.cpp
+)
+target_link_libraries(iLink
+  mavros
+  ${catkin_LIBRARIES}
+)
+
 #############
 ## Install ##
 #############
@@ -179,7 +187,7 @@ catkin_install_python(PROGRAMS
 )
 
 ## Mark executables and/or libraries for installation
-install(TARGETS mavros mavros_plugins mavros_node gcs_bridge
+install(TARGETS mavros mavros_plugins mavros_node gcs_bridge iLink
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
